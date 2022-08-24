@@ -1,4 +1,7 @@
 <div class="row" *ngFor="let row of items; let i = index;">
-        <div class="button" [attr.i]="row" [attr.j]="column" *ngFor="let column of items; let j = index">{{ i+1 }} {{ j+1 }}</div>
+    <div class="cell" [attr.i]="row" [attr.j]="cell" 
+    *ngFor="let cell of row; let j = index" [class.blue]="cell.isClicked"
+    (click)="makeCurrent(cell); returnCoordinates(i, j); ">
+    </div>
 </div>
 
