@@ -16,9 +16,9 @@ header {
 
 p {
     position: absolute;
-    margin: 0;
-    padding: 18px;
-    left: 0;
+    margin: 0 20px 0 0;
+    padding: 0;
+    right: 0;
     top: 0;
 
     font-family: 'Poppins', sans-serif;
@@ -34,10 +34,50 @@ p {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    
 }
 
-input {
+.Button {
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #265DC7;
+    background-blend-mode: overlay, normal;
+    box-shadow: 0px 4.15917px 8.31834px rgba(0, 0, 0, 0.14), 0px 8.31834px 10.3979px rgba(0, 0, 0, 0.12), 0px 2.07958px 20.7958px rgba(0, 0, 0, 0.2);
+    border: none;
+    width: 190px;
+    height: 45px;
+    border-radius: 10px;
+    font-size: larger;
+    color: aliceblue;
     margin: 10px;
-    float: right;
 }
+
+.Button2 {
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #F96E03;
+    background-blend-mode: overlay, normal;
+    box-shadow: 0px 4.15917px 8.31834px rgba(0, 0, 0, 0.14), 0px 8.31834px 10.3979px rgba(0, 0, 0, 0.12), 0px 2.07958px 20.7958px rgba(0, 0, 0, 0.2);
+    border: none;
+    width: 190px;
+    height: 45px;
+    border-radius: 10px;
+    font-size: larger;
+    color: aliceblue;
+    margin: 10px;
+}
+
+.container-game {
+    background: linear-gradient(180deg, #AAC2FF 0%, #C81BF1 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(101px);
+    border-radius: 20px;
+    position: absolute;
+    width: 56%;
+    height: 80%;
+    right: 20%;
+    top: 15%;
+}
+
+.container-board {
+    position: absolute;
+    margin-top: 2%;
+}
+

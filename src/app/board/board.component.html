@@ -1,5 +1,4 @@
-<div>
 <div class="row" *ngFor="let row of items; let i = index;">
-    <div class="button" [attr.i]="row" [attr.j]="column" *ngFor="let column of items; let j = index">{{ i+1 }} {{ j+1 }}</div>
+        <div class="button" [attr.i]="row" [attr.j]="column" *ngFor="let column of items; let j = index">{{ i+1 }} {{ j+1 }}</div>
 </div>
-</div>
+

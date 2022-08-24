@@ -2,8 +2,15 @@
 <div class="container-card">
   <header>
     <p>10x10</p>
-    <input type="image" src="../assets/images/Buttom.png" alt="Кнопка «step back»">
-    <input type="image" src="../assets/images/Buttom2.png" alt="Кнопка «restart»">
+    <button class="Button">step back</button>
+    <button class="Button2">restart</button>
   </header>
-  <app-board></app-board>
+  <div class="container-game">
+    <app-game></app-game>
+      <div class="container-board">
+        <app-board></app-board>  
+      </div>
+    
+  </div>  
+  
 </div>
