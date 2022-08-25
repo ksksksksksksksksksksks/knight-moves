@@ -5,7 +5,7 @@ interface Cell {
   j: number;
   isCurrent: boolean;
   isClicked: boolean;
-  isAcess: boolean;
+  isAvailable: boolean;
   step?: number;
 }
 
@@ -15,7 +15,7 @@ function initCell(options?: Partial<Cell>): Cell {
     j: 1,
     isCurrent: false,
     isClicked: false,
-    isAcess: false,
+    isAvailable: false,
   };
 
   return {
@@ -33,7 +33,14 @@ export class BoardComponent implements OnInit {
   items: Cell[][];
 
   constructor() {
-    this.items = Array(10).fill(Array(10).fill({initCell}));
+    this.items = [];
+    for (let i = 0; i < 10; i++) {
+      this.items[i] = [];
+      for (let j = 0; j < 10; j++) {
+        this.items[i][j] = initCell({i, j});
+      }
+    }
+    console.log(this.items);
   }
 
   returnCoordinates(a: number, b: number) {
