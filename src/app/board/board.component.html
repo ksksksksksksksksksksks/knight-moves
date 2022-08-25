@@ -1,7 +1,7 @@
 <div class="row" *ngFor="let row of items; let i = index;">
     <div class="cell" [attr.i]="row" [attr.j]="cell" 
-    *ngFor="let cell of row; let j = index" [class.click]="cell.isClicked"
-    (click)="makeCurrent(cell); returnCoordinates(i, j); ">
+    *ngFor="let cell of row; let j = index" [class.click]="cell.isClicked" [class.avail]="cell.isAvailable"
+    (click)="makeCurrent(cell); makeAvailable(cell); returnCoordinates(i, j); ">
     </div>
 </div>
 

@@ -51,6 +51,12 @@ export class BoardComponent implements OnInit {
     cell.isClicked = true;
   }
 
+  makeAvailable(cell: Cell) {
+    const i = cell.i + 2;
+    const j = cell.j - 1;
+    this.items[i][j].isAvailable = true;
+  }
+
   ngOnInit(): void {
   }
 
