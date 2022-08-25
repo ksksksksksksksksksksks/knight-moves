@@ -19,10 +19,11 @@
 }
 
 .click {
-    background: blue;
+    background: linear-gradient(180deg, #729df4 0%, rgba(255, 255, 255, 0) 100%), #052de1;
 }
 
 .avail {
-    background: green;
+    background: linear-gradient(220.53deg, #B2F763 0%, #26AB3F 76.95%);
+    box-shadow: 6px -6px 16px rgba(178, 247, 99, 0.2);
 }
 

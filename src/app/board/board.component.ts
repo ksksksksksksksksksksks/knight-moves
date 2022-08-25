@@ -52,9 +52,57 @@ export class BoardComponent implements OnInit {
   }
 
   makeAvailable(cell: Cell) {
-    const i = cell.i + 2;
-    const j = cell.j - 1;
-    this.items[i][j].isAvailable = true;
+    const x = cell.i;
+    const y = cell.j;
+
+    if (x + 2 < this.items.length && y - 1 >= 0) {
+      const x = cell.i + 2;
+      const y = cell.j - 1;
+      this.items[x][y].isAvailable = true;  
+    }
+
+    if (x + 2 < this.items.length && y + 1 < this.items.length) {
+      const x = cell.i + 2;
+      const y = cell.j + 1;
+      this.items[x][y].isAvailable = true;  
+    }
+
+    if (x - 2 >= 0 && y - 1 >= 0) {
+      const x = cell.i - 2;
+      const y = cell.j - 1;
+      this.items[x][y].isAvailable = true;  
+    }
+    
+    if (x - 2 >= 0 && y + 1 < this.items.length) {
+      const x = cell.i - 2;
+      const y = cell.j + 1;
+      this.items[x][y].isAvailable = true;  
+    }
+
+    if (x + 1 < this.items.length && y + 2 < this.items.length) {
+      const x = cell.i + 1;
+      const y = cell.j + 2;
+      this.items[x][y].isAvailable = true;  
+    }
+
+    if (x - 1 >= 0 && y + 2 < this.items.length) {
+      const x = cell.i - 1;
+      const y = cell.j + 2;
+      this.items[x][y].isAvailable = true;  
+    }
+
+    if (x + 1 < this.items.length && y - 2 >= 0) {
+      const x = cell.i + 1;
+      const y = cell.j - 2;
+      this.items[x][y].isAvailable = true;  
+    }
+    
+    if (x - 1 >= 0 && y - 2 >= 0) {
+      const x = cell.i - 1;
+      const y = cell.j - 2;
+      this.items[x][y].isAvailable = true;  
+    }
+
   }
 
   ngOnInit(): void {
