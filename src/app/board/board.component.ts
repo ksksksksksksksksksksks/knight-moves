@@ -49,11 +49,9 @@ export class BoardComponent implements OnInit {
 
   makeCurrent(cell: Cell) {
     cell.isClicked = true;
-  }
-
-  makeAvailable(cell: Cell) {
     const x = cell.i;
     const y = cell.j;
+    this.items[x][y].isAvailable = false;
 
     if (x + 2 < this.items.length && y - 1 >= 0) {
       const x = cell.i + 2;
@@ -102,7 +100,6 @@ export class BoardComponent implements OnInit {
       const y = cell.j - 2;
       this.items[x][y].isAvailable = true;  
     }
-
   }
 
   ngOnInit(): void {
