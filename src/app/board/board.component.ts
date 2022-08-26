@@ -107,10 +107,6 @@ export class BoardComponent implements OnInit {
 
   }
 
-  showStep(cell: Cell) {
-        
-  }
-
   ngOnInit(): void {
   }
 

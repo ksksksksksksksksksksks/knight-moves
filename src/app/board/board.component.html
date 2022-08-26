@@ -1,8 +1,6 @@
 <div class="row" *ngFor="let row of items; let i = index;">
     <div class="cell" [attr.i]="row" [attr.j]="cell" 
     *ngFor="let cell of row; let j = index" [class.current]="cell.isCurrent" [class.avail]="cell.isAvailable" [class.click]="cell.isClicked && !cell.isCurrent"
-    (click)="clicked($event); makeCurrent(cell); showStep(cell);"> {{cell.step}}
+    (click)="clicked($event); makeCurrent(cell);"> {{cell.step}}
     </div>
 </div>
-
-<!--  -->
