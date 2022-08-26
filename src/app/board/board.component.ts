@@ -53,6 +53,8 @@ export class BoardComponent implements OnInit {
     this.clickCount++;
   }
 
+  stepCount: number = 1;
+
   makeCurrent(cell: Cell) {
     const a = cell.i;
     const b = cell.j;
@@ -69,6 +71,7 @@ export class BoardComponent implements OnInit {
       const x = cell.i;
       const y = cell.j;
       this.items[x][y].isClicked = true;
+      this.items[x][y].step = this.stepCount++;
   
       if (x + 2 < this.items.length && y - 1 >= 0) {
         const x = cell.i + 2;
@@ -121,7 +124,8 @@ export class BoardComponent implements OnInit {
 
   }
 
-  makeAvailable(cell: Cell) {
+  showStep(cell: Cell) {
+        
   }
 
   ngOnInit(): void {
