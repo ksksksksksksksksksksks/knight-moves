@@ -56,10 +56,10 @@ export class BoardComponent implements OnInit {
   stepCount: number = 1;
 
   makeCurrent(cell: Cell) {
-    const a = cell.i;
-    const b = cell.j;
+    const x = cell.i;
+    const y = cell.j;
 
-    if (this.clickCount == 1 || this.items[a][b].isAvailable){
+    if (this.clickCount == 1 || this.items[x][y].isAvailable){
 
       for (let i = 0; i < 10; i++) {
         for (let j = 0; j < 10; j++) {
@@ -67,59 +67,41 @@ export class BoardComponent implements OnInit {
           this.items[i][j].isAvailable = false;
         }
       }
-  
-      const x = cell.i;
-      const y = cell.j;
+
       this.items[x][y].isCurrent = true;
-      //this.items[x][y].isClicked = true;
+      this.items[x][y].isClicked = true;
       this.items[x][y].step = this.stepCount++;
   
-      if (x + 2 < this.items.length && y - 1 >= 0) {
-        const x = cell.i + 2;
-        const y = cell.j - 1;
-        this.items[x][y].isAvailable = true;  
+      if (x + 2 < this.items.length && y - 1 >= 0 && !this.items[x + 2][y - 1].isClicked) {
+        this.items[x + 2][y - 1].isAvailable = true;  
       }
   
-      if (x + 2 < this.items.length && y + 1 < this.items.length) {
-        const x = cell.i + 2;
-        const y = cell.j + 1;
-        this.items[x][y].isAvailable = true;  
+      if (x + 2 < this.items.length && y + 1 < this.items.length && !this.items[x + 2][y + 1].isClicked) {
+        this.items[x + 2][y + 1].isAvailable = true;  
       }
   
-      if (x - 2 >= 0 && y - 1 >= 0) {
-        const x = cell.i - 2;
-        const y = cell.j - 1;
-        this.items[x][y].isAvailable = true;  
+      if (x - 2 >= 0 && y - 1 >= 0 && !this.items[x - 2][y - 1].isClicked) {
+        this.items[x - 2][y - 1].isAvailable = true;  
       }
       
-      if (x - 2 >= 0 && y + 1 < this.items.length) {
-        const x = cell.i - 2;
-        const y = cell.j + 1;
-        this.items[x][y].isAvailable = true;  
+      if (x - 2 >= 0 && y + 1 < this.items.length && !this.items[x - 2][y + 1].isClicked) {
+        this.items[x - 2][y + 1].isAvailable = true;  
       }
   
-      if (x + 1 < this.items.length && y + 2 < this.items.length) {
-        const x = cell.i + 1;
-        const y = cell.j + 2;
-        this.items[x][y].isAvailable = true;  
+      if (x + 1 < this.items.length && y + 2 < this.items.length && !this.items[x + 1][y + 2].isClicked) {
+        this.items[x + 1][y + 2].isAvailable = true;  
       }
   
-      if (x - 1 >= 0 && y + 2 < this.items.length) {
-        const x = cell.i - 1;
-        const y = cell.j + 2;
-        this.items[x][y].isAvailable = true;  
+      if (x - 1 >= 0 && y + 2 < this.items.length && !this.items[x - 1][y + 2].isClicked) {
+        this.items[x - 1][y + 2].isAvailable = true;  
       }
   
-      if (x + 1 < this.items.length && y - 2 >= 0) {
-        const x = cell.i + 1;
-        const y = cell.j - 2;
-        this.items[x][y].isAvailable = true;  
+      if (x + 1 < this.items.length && y - 2 >= 0 && !this.items[x + 1][y - 2].isClicked) {
+        this.items[x + 1][y - 2].isAvailable = true;  
       }
       
-      if (x - 1 >= 0 && y - 2 >= 0) {
-        const x = cell.i - 1;
-        const y = cell.j - 2;
-        this.items[x][y].isAvailable = true;  
+      if (x - 1 >= 0 && y - 2 >= 0 && !this.items[x - 1][y - 2].isClicked) {
+        this.items[x - 1][y - 2].isAvailable = true;  
       }
     }
 
