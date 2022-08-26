@@ -105,6 +105,28 @@ export class BoardComponent implements OnInit {
       }
     }
 
+    let availableCount = 0;
+    let clickedCount = 0;
+    for (let i = 0; i < 10; i++) {
+      for (let j = 0; j < 10; j++) {
+        if (this.items[i][j].isAvailable) {
+          availableCount++;
+        }
+        if (this.items[i][j].isClicked) {
+          clickedCount++;
+        }
+      }  
+    }
+
+    if (availableCount == 0 && clickedCount != (this.items.length * this.items.length)) {
+      alert('You lose!');
+    }
+    
+    if (this.items[x][y].isClicked && clickedCount == (this.items.length * this.items.length)) {
+      alert('You are WINNER!');
+    }
+    
+
   }
 
   ngOnInit(): void {
