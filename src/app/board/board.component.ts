@@ -59,18 +59,19 @@ export class BoardComponent implements OnInit {
     const a = cell.i;
     const b = cell.j;
 
-    if (this.clickCount == 1 || this.items[a][b].isAvailable == true){
+    if (this.clickCount == 1 || this.items[a][b].isAvailable){
 
       for (let i = 0; i < 10; i++) {
-        this.items[i] = [];
         for (let j = 0; j < 10; j++) {
-          this.items[i][j] = initCell({i, j});
+          this.items[i][j].isCurrent = false;
+          this.items[i][j].isAvailable = false;
         }
       }
   
       const x = cell.i;
       const y = cell.j;
-      this.items[x][y].isClicked = true;
+      this.items[x][y].isCurrent = true;
+      //this.items[x][y].isClicked = true;
       this.items[x][y].step = this.stepCount++;
   
       if (x + 2 < this.items.length && y - 1 >= 0) {
