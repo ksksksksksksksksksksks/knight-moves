@@ -48,10 +48,16 @@ export class BoardComponent implements OnInit {
   }
 
   makeCurrent(cell: Cell) {
-    cell.isClicked = true;
+    for (let i = 0; i < 10; i++) {
+      this.items[i] = [];
+      for (let j = 0; j < 10; j++) {
+        this.items[i][j] = initCell({i, j});
+      }
+    }
+
     const x = cell.i;
     const y = cell.j;
-    this.items[x][y].isAvailable = false;
+    this.items[x][y].isClicked = true;
 
     if (x + 2 < this.items.length && y - 1 >= 0) {
       const x = cell.i + 2;
