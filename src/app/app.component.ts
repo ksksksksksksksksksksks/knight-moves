@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { BoardComponent } from './board/board.component';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  takeStepBack() {
+  @ViewChild(BoardComponent) child!: BoardComponent;
 
+  takeStepBack() {
+    this.child.stepBack(); 
   }
 
   restart() {
-    window.location.reload();
+    this.child.restart(); 
   }
 
 }
