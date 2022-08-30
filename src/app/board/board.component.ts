@@ -107,8 +107,8 @@ export class BoardComponent implements OnInit {
     let availableCount = 0;
     let clickedCount = 0;
     
-    for (let i = 0; i < 10; i++) {
-      for (let j = 0; j < 10; j++) {
+    for (let i = 0; i < this.fieldSize; i++) {
+      for (let j = 0; j < this.fieldSize; j++) {
         if (this.items[i][j].isAvailable) {
           availableCount++;
         }
