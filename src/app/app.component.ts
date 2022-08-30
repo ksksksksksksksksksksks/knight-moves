@@ -18,4 +18,8 @@ export class AppComponent {
     this.child.restart(); 
   }
 
+  setFieldSize5() {
+    //this.child.setField5();
+  }
+
 }

@@ -24,6 +24,17 @@ function initCell(options?: Partial<Cell>): Cell {
   };
 }
 
+let coeff: [number, number][] = [
+[2, -1],
+[2, 1],
+[-2, -1],
+[-2, 1],
+[1, 2],
+[-1, 2],
+[1, -2],
+[-1, -2],
+];
+
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -35,15 +46,21 @@ export class BoardComponent implements OnInit {
   items: Cell[][];
   stepHistory: Cell[] = [];
 
+  /*setField5() {
+    this.fieldSize = 5;
+  }*/
+
   constructor() {
     this.items = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < this.fieldSize; i++) {
       this.items[i] = [];
-      for (let j = 0; j < 10; j++) {
+      for (let j = 0; j < this.fieldSize; j++) {
         this.items[i][j] = initCell({i, j});
       }
     }
     console.log(this.items);
+    
+    //this.items = Array(this.fieldSize).fill(Array(this.fieldSize).fill({initCell}));
   }
 
   clickCount: number = 0;
@@ -66,38 +83,16 @@ export class BoardComponent implements OnInit {
     this.items[x][y].isClicked = true;
     this.items[x][y].step = this.stepCount++;
 
-    if (x + 2 < this.items.length && y - 1 >= 0 && !this.items[x + 2][y - 1].isClicked) {
-      this.items[x + 2][y - 1].isAvailable = true;  
+    for (let i = 0; i < coeff.length; i++) {
+      for (let j = 0; j < 1; j++) {
+        if ((x + coeff[i][j] < this.items.length && x + coeff[i][j] >= 0) && (y + coeff[i][j + 1] < this.items.length && y + coeff[i][j + 1] >= 0)
+        && !this.items[x + coeff[i][j]][y + coeff[i][j + 1]].isClicked) {
+          this.items[x + coeff[i][j]][y + coeff[i][j + 1]].isAvailable = true;
+          console.log(x + coeff[i][j],y + coeff[i][j + 1]);
+        }
+      }
     }
 
-    if (x + 2 < this.items.length && y + 1 < this.items.length && !this.items[x + 2][y + 1].isClicked) {
-      this.items[x + 2][y + 1].isAvailable = true;  
-    }
-
-    if (x - 2 >= 0 && y - 1 >= 0 && !this.items[x - 2][y - 1].isClicked) {
-      this.items[x - 2][y - 1].isAvailable = true;  
-    }
-    
-    if (x - 2 >= 0 && y + 1 < this.items.length && !this.items[x - 2][y + 1].isClicked) {
-      this.items[x - 2][y + 1].isAvailable = true;  
-    }
-
-    if (x + 1 < this.items.length && y + 2 < this.items.length && !this.items[x + 1][y + 2].isClicked) {
-      this.items[x + 1][y + 2].isAvailable = true;  
-    }
-
-    if (x - 1 >= 0 && y + 2 < this.items.length && !this.items[x - 1][y + 2].isClicked) {
-      this.items[x - 1][y + 2].isAvailable = true;  
-    }
-
-    if (x + 1 < this.items.length && y - 2 >= 0 && !this.items[x + 1][y - 2].isClicked) {
-      this.items[x + 1][y - 2].isAvailable = true;  
-    }
-    
-    if (x - 1 >= 0 && y - 2 >= 0 && !this.items[x - 1][y - 2].isClicked) {
-      this.items[x - 1][y - 2].isAvailable = true;  
-    }
-    
   }
   
   makeCurrent(cell: Cell) {
