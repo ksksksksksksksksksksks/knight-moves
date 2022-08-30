@@ -154,7 +154,18 @@ export class BoardComponent implements OnInit {
   }
 
   restart() {
-    window.location.reload();
+    this.items = [];
+    for (let i = 0; i < this.fieldSize; i++) {
+      this.items[i] = [];
+      for (let j = 0; j < this.fieldSize; j++) {
+        this.items[i][j] = initCell({i, j});
+        console.log(this.items[i][j])
+      }
+    } 
+    
+    this.clickCount = 0;
+    this.stepCount = 1;
+    this.stepHistory = [];
   }
 
   ngOnInit(): void {
