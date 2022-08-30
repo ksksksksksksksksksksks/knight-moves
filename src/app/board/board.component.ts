@@ -97,6 +97,7 @@ export class BoardComponent implements OnInit {
     if (x - 1 >= 0 && y - 2 >= 0 && !this.items[x - 1][y - 2].isClicked) {
       this.items[x - 1][y - 2].isAvailable = true;  
     }
+    
   }
   
   makeCurrent(cell: Cell) {
@@ -104,6 +105,7 @@ export class BoardComponent implements OnInit {
     const y = cell.j;
 
     if (this.clickCount == 1 || this.items[x][y].isAvailable){
+      this.stepHistory.push(cell);
       this.renderStep(x, y);
     }
 
@@ -121,8 +123,6 @@ export class BoardComponent implements OnInit {
       }  
     }
 
-    this.stepHistory.push(cell);
-
     if (availableCount == 0 && clickedCount != (this.items.length * this.items.length)) {
       alert('You lose!');
     }
@@ -133,16 +133,23 @@ export class BoardComponent implements OnInit {
   }
 
   stepBack() {
-    let last = this.stepHistory.pop()
-    if (typeof last != undefined) {
-      (last as Cell).isClicked = false;
-    }
-    
-    let current = this.stepHistory.pop();
-    if (typeof current != undefined) {
-      let cell = current as Cell;
-      this.renderStep(cell.i, cell.j);
-      this.makeCurrent(cell);
+    if (this.stepHistory.length > 1){
+      let last = this.stepHistory.pop();
+      
+      if (last) {
+        (last as Cell).isClicked = false;
+        delete last.step;
+      }
+      
+      let current = this.stepHistory.pop();
+      
+      if (current) {
+        let currentCell = current as Cell;
+        this.stepCount = currentCell.step as number;
+        this.renderStep(currentCell.i, currentCell.j);
+        this.makeCurrent(currentCell);
+        this.stepHistory.push(currentCell);
+      }
     }
   }
 
