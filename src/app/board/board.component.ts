@@ -45,8 +45,8 @@ let coeff: [number, number][] = [
 })
 export class BoardComponent implements OnInit {
 
-  fieldSize: number = 10;
-  //fieldSize: number = this.gameService.messageFieldSize;
+  //fieldSize: number = 10;
+  fieldSize: number = this.gameService.messageFieldSize;
   items: Cell[][];
   stepHistory: Cell[] = [];
   restartMessage: string = this.gameService.messageRestart;

@@ -32,7 +32,6 @@ export class FieldSizeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  } 
-  
+  }  
 
 }

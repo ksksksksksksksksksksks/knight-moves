@@ -15,13 +15,15 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { EditorComponent } from './editor/editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
     FieldSizeComponent,
-    GameResultComponent
+    GameResultComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,

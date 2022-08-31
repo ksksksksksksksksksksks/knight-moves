@@ -1,0 +1,5 @@
+<label for="size">Field size: </label>
+<input id="size" type="number" [formControl]="size">
+
+<p>Value: {{ size.value }}</p>
+<button (click)="close()">Set</button>
