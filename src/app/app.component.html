@@ -1,13 +1,13 @@
-
-<div class="container-card">
+<div *ngIf="fieldSize !== 0" class="container-card">
   <header>
     <p>10x10</p>
     <button class="Button" (click)="takeStepBack()">step back</button>
     <button class="Button2" (click)="restart()">restart</button>
+    <button mat-raised-button (click)="openModal()">field size</button>
   </header>
   <div class="container-game">
-      <div class="container-board">
-        <app-board></app-board>  
-      </div>
+    <div class="container-board">
+      <app-board></app-board>  
+    </div>
   </div>  
 </div>

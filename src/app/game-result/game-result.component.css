@@ -14,21 +14,8 @@
     align-self: center;
 }
 
-#buttonFieldSize5 {
+#buttonRestart {
     color: aliceblue;
     margin: 10px;
-    background-color:#fa0000;
-}
-
-#buttonFieldSize8 {
-    color: aliceblue;
-    margin: 10px;
-    background-color:#00d31c;
-}
-
-#buttonFieldSize10 {
-    color: aliceblue;
-    margin: 10px;
-    background-color:#00c3ff;
-    
+    background-color:#fd0000;
 }

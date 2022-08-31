@@ -8,3 +8,28 @@ body {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-dialog-container#modal-component {
+    border: 3px solid #d5b6dd;
+    border-radius: 11px;
+    background-color: #9c3285;
+    color: aliceblue;
+    position: absolute;
+    margin: 0 25% 0 25%;
+    width: 50%;
+    height: 80%;
+    left: 0;
+    top: 10%;
+}
+
+mat-dialog-container#modal-component-2 {
+    border: 3px solid #d5b6dd;
+    border-radius: 11px;
+    background-color: #9c3285;
+    color: aliceblue;
+    position: absolute;
+    width: 25%;
+    height: 40%;
+    left: 37%;
+    top: 33%;
+}

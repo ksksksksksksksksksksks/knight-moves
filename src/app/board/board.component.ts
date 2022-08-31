@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { GameService } from 'src/app/game.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { GameResultComponent } from 'src/app/game-result/game-result.component';
 
 interface Cell {
   i: number;
@@ -41,16 +44,14 @@ let coeff: [number, number][] = [
   styleUrls: ['./board.component.css'],
 })
 export class BoardComponent implements OnInit {
-  
+
   fieldSize: number = 10;
+  //fieldSize: number = this.gameService.messageFieldSize;
   items: Cell[][];
   stepHistory: Cell[] = [];
+  restartMessage: string = this.gameService.messageRestart;
 
-  /*setField5() {
-    this.fieldSize = 5;
-  }*/
-
-  constructor() {
+  constructor(public matDialog: MatDialog, private gameService: GameService) {
     this.items = [];
     for (let i = 0; i < this.fieldSize; i++) {
       this.items[i] = [];
@@ -117,14 +118,25 @@ export class BoardComponent implements OnInit {
         }
       }  
     }
-
+    
     if (availableCount == 0 && clickedCount != (this.items.length * this.items.length)) {
-      alert('You lose!');
+      this.gameService.addResult('lose');
+      this.openModal2();
     }
     
     if (this.items[x][y].isClicked && clickedCount == (this.items.length * this.items.length)) {
-      alert('You are WINNER!');
+      this.gameService.addResult('win');
+      this.openModal2();
     } 
+  }
+
+  openModal2() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "modal-component-2";
+    dialogConfig.height = "window.screen.height";
+    dialogConfig.width = "window.screen.width";
+    const modalDialog = this.matDialog.open(GameResultComponent, dialogConfig);
   }
 
   stepBack() {
