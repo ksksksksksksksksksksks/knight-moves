@@ -4,7 +4,6 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EditorComponent } from './editor/editor.component';
 import { GameService } from 'src/app/game.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

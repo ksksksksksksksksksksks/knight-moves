@@ -36,6 +36,6 @@ import { EditorComponent } from './editor/editor.component';
     MatButtonModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

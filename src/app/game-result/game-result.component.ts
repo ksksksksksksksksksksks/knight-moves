@@ -13,9 +13,9 @@ export class GameResultComponent  {
   }
 
   resultMessage: string = this.gameService.messageResult;
+  
 
-  sendMessageRestart() {
-    this.gameService.messageResult = 'yes';
-    window.location.reload();
+  close() {
+    this.dialogRef.close('restart');
   }  
 }

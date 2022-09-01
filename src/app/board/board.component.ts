@@ -51,6 +51,8 @@ export class BoardComponent implements OnInit {
   stepHistory: Cell[] = [];
   restartMessage: string = this.gameService.messageRestart;
   stepCount: number = 1;
+  clickCount: number = 0;
+  resultMessage: string = '';
 
   constructor(public matDialog: MatDialog, private gameService: GameService) {
     this.items = [];
@@ -60,12 +62,11 @@ export class BoardComponent implements OnInit {
         this.items[i][j] = initCell({i, j});
       }
     }
-    console.log(this.items);
+    //console.log(this.items);
     
     //this.items = Array(this.fieldSize).fill(Array(this.fieldSize).fill({initCell}));
   }
 
-  clickCount: number = 0;
   clicked(event: Event) {
     console.log(event);
     this.clickCount++;
@@ -120,11 +121,13 @@ export class BoardComponent implements OnInit {
     if (availableCount == 0 && clickedCount != (this.items.length * this.items.length)) {
       this.gameService.addResult('lose');
       this.openModal2();
+      this.resultMessage = 'lose';
     }
     
     if (this.items[x][y].isClicked && clickedCount == (this.items.length * this.items.length)) {
       this.gameService.addResult('win');
       this.openModal2();
+      this.resultMessage = 'win';
     } 
   }
 
@@ -134,6 +137,7 @@ export class BoardComponent implements OnInit {
     dialogConfig.id = "modal-component-2";
     dialogConfig.height = "window.screen.height";
     dialogConfig.width = "window.screen.width";
+    dialogConfig.data = this.resultMessage;
     const modalDialog = this.matDialog.open(GameResultComponent, dialogConfig);
   }
 
@@ -164,7 +168,7 @@ export class BoardComponent implements OnInit {
       this.items[i] = [];
       for (let j = 0; j < this.fieldSize; j++) {
         this.items[i][j] = initCell({i, j});
-        //console.log(this.items[i][j]);
+        console.log(this.items[i][j])
       }
     } 
     

@@ -8,7 +8,7 @@
         <p *ngIf="resultMessage === 'lose'">You lose!</p>
     </section>
     <footer id="modal-footer">
-        <button mat-raised-button *ngIf="resultMessage === 'win'" id="buttonRestart" (click)="sendMessageRestart()">Restart</button>
-        <button mat-raised-button *ngIf="resultMessage === 'lose'" id="buttonRestart" (click)="sendMessageRestart()">Try again</button>
+        <button mat-raised-button *ngIf="resultMessage === 'win'" id="buttonRestart" (click)="close()">Restart</button>
+        <button mat-raised-button *ngIf="resultMessage === 'lose'" id="buttonRestart" (click)="close()">Try again</button>
     </footer>
 </div>
