@@ -50,6 +50,7 @@ export class BoardComponent implements OnInit {
   items: Cell[][];
   stepHistory: Cell[] = [];
   restartMessage: string = this.gameService.messageRestart;
+  stepCount: number = 1;
 
   constructor(public matDialog: MatDialog, private gameService: GameService) {
     this.items = [];
@@ -70,8 +71,6 @@ export class BoardComponent implements OnInit {
     this.clickCount++;
   }
 
-  stepCount: number = 1;
-
   renderStep(x: number, y: number) {
     for (let i = 0; i < this.fieldSize; i++) {
       for (let j = 0; j < this.fieldSize; j++) {
@@ -89,7 +88,6 @@ export class BoardComponent implements OnInit {
         if ((x + coeff[i][j] < this.items.length && x + coeff[i][j] >= 0) && (y + coeff[i][j + 1] < this.items.length && y + coeff[i][j + 1] >= 0)
         && !this.items[x + coeff[i][j]][y + coeff[i][j + 1]].isClicked) {
           this.items[x + coeff[i][j]][y + coeff[i][j + 1]].isAvailable = true;
-          console.log(x + coeff[i][j],y + coeff[i][j + 1]);
         }
       }
     }
@@ -166,7 +164,7 @@ export class BoardComponent implements OnInit {
       this.items[i] = [];
       for (let j = 0; j < this.fieldSize; j++) {
         this.items[i][j] = initCell({i, j});
-        console.log(this.items[i][j])
+        //console.log(this.items[i][j]);
       }
     } 
     

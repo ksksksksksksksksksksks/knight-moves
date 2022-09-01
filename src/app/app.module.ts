@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { BoardComponent } from './board/board.component';
-import { FieldSizeComponent as FieldSizeComponent} from './field-size/field-size.component';
 import { GameResultComponent} from './game-result/game-result.component';
 
 import { FormsModule } from '@angular/forms';
@@ -21,7 +20,6 @@ import { EditorComponent } from './editor/editor.component';
   declarations: [
     AppComponent,
     BoardComponent,
-    FieldSizeComponent,
     GameResultComponent,
     EditorComponent
   ],
@@ -38,7 +36,6 @@ import { EditorComponent } from './editor/editor.component';
     MatButtonModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [FieldSizeComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

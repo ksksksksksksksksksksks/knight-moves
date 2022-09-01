@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { BoardComponent } from './board/board.component';
-import { FieldSizeComponent } from './field-size/field-size.component';
 import { GameResultComponent } from './game-result/game-result.component';
 
 @Injectable({

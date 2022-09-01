@@ -9,12 +9,15 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
-  size = new FormControl('');
+  size = new FormControl('10');
   
   //size.value = this.gameService.messageFieldSize;
   constructor(public modal: MatDialogRef<EditorComponent>, private gameService: GameService) { }
 
   ngOnInit(): void {
+    this.size.valueChanges.subscribe(
+      (value) => console.log(value)
+    );
   }
 
   public close() {
