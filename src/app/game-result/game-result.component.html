@@ -1,14 +1,12 @@
-<div id="modal-content-wrapper">
-    <header id="modal-header">
-        <h1 id="modal-title" *ngIf="resultMessage === 'win'">Congrats!</h1>
-        <h1 id="modal-title" *ngIf="resultMessage === 'lose'">Sorry!!</h1>
-    </header>
-    <section id="modal-body">
-        <p *ngIf="resultMessage === 'win'">You are WINNER!</p>
-        <p *ngIf="resultMessage === 'lose'">You lose!</p>
-    </section>
-    <footer id="modal-footer">
-        <button mat-raised-button *ngIf="resultMessage === 'win'" id="buttonRestart" (click)="sendMessageRestart()">Restart</button>
-        <button mat-raised-button *ngIf="resultMessage === 'lose'" id="buttonRestart" (click)="sendMessageRestart()">Try again</button>
-    </footer>
-</div>
+<header id="modal-header">
+    <h1 id="modal-title" *ngIf="this.description === 'win'">Congrats!</h1>
+    <h1 id="modal-title" *ngIf="this.description === 'lose'">Sorry!!</h1>
+</header>
+<section id="modal-body">
+    <p *ngIf="this.description === 'win'">You are WINNER!</p>
+    <p *ngIf="this.description === 'lose'">You lose!</p>
+</section>
+<footer id="modal-footer">
+    <button *ngIf="this.description === 'win'" id="buttonRestart" (click)="close()">Restart</button>
+    <button *ngIf="this.description === 'lose'" id="buttonRestart" (click)="close()">Try again</button>
+</footer>

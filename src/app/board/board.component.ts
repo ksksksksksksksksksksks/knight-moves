@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { GameService } from 'src/app/game.service';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { GameResultComponent } from 'src/app/game-result/game-result.component';
 
@@ -46,13 +45,15 @@ let coeff: [number, number][] = [
 export class BoardComponent implements OnInit {
 
   //fieldSize: number = 10;
-  fieldSize: number = this.gameService.messageFieldSize;
+  fieldSize: number = 5;
   items: Cell[][];
   stepHistory: Cell[] = [];
-  restartMessage: string = this.gameService.messageRestart;
+  restartMessage: string = '';
   stepCount: number = 1;
+  clickCount: number = 0;
+  resultMessage: string = '';
 
-  constructor(public matDialog: MatDialog, private gameService: GameService) {
+  constructor(public matDialog: MatDialog) {
     this.items = [];
     for (let i = 0; i < this.fieldSize; i++) {
       this.items[i] = [];
@@ -60,12 +61,11 @@ export class BoardComponent implements OnInit {
         this.items[i][j] = initCell({i, j});
       }
     }
-    console.log(this.items);
+    //console.log(this.items);
     
     //this.items = Array(this.fieldSize).fill(Array(this.fieldSize).fill({initCell}));
   }
 
-  clickCount: number = 0;
   clicked(event: Event) {
     console.log(event);
     this.clickCount++;
@@ -118,23 +118,29 @@ export class BoardComponent implements OnInit {
     }
     
     if (availableCount == 0 && clickedCount != (this.items.length * this.items.length)) {
-      this.gameService.addResult('lose');
-      this.openModal2();
+      this.resultMessage = 'lose';
+      this.showResult();
     }
     
     if (this.items[x][y].isClicked && clickedCount == (this.items.length * this.items.length)) {
-      this.gameService.addResult('win');
-      this.openModal2();
+      this.resultMessage = 'win';
+      this.showResult();
     } 
   }
 
-  openModal2() {
+  showResult() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.id = "modal-component-2";
     dialogConfig.height = "window.screen.height";
     dialogConfig.width = "window.screen.width";
+    dialogConfig.data = this.resultMessage;
     const modalDialog = this.matDialog.open(GameResultComponent, dialogConfig);
+    modalDialog.afterClosed().subscribe(result => {
+      if (result === 'restart'){
+        this.restart();
+      }
+    });
   }
 
   stepBack() {

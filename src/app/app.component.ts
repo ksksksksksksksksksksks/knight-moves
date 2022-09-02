@@ -2,7 +2,6 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { BoardComponent } from './board/board.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EditorComponent } from './editor/editor.component';
-import { GameService } from 'src/app/game.service';
 
 
 @Component({
@@ -12,10 +11,10 @@ import { GameService } from 'src/app/game.service';
 })
 export class AppComponent {
 
-  constructor(public matDialog: MatDialog, private gameService: GameService) { 
+  constructor(public matDialog: MatDialog) { 
   }
 
-  fieldSize: number = this.gameService.messageFieldSize;
+  fieldSize: number = 0;
 
   openModal3() {
     const dialogConfig = new MatDialogConfig();
@@ -24,7 +23,7 @@ export class AppComponent {
     dialogConfig.height = "window.screen.height";
     dialogConfig.width = "window.screen.width";
     const modalDialog = this.matDialog.open(EditorComponent, dialogConfig).afterClosed().subscribe(size => {
-      this.gameService.messageFieldSize = size;
+      //this.gameService.messageFieldSize = size;
     });
   }
 

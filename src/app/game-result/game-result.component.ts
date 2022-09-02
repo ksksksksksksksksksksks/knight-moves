@@ -1,21 +1,24 @@
-import { Component  } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
-import { GameService } from 'src/app/game.service';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-game-result',
   templateUrl: './game-result.component.html',
   styleUrls: ['./game-result.component.css']
 })
-export class GameResultComponent  {
+export class GameResultComponent {
 
-  constructor(public dialogRef: MatDialogRef<GameResultComponent>, private gameService: GameService) { 
+  description: string = '';
+
+  constructor(
+    public dialogRef: MatDialogRef<GameResultComponent>, 
+    @Inject(MAT_DIALOG_DATA) public data: any) { 
+    
+      this.description = this.data;
   }
 
-  resultMessage: string = this.gameService.messageResult;
-
-  sendMessageRestart() {
-    this.gameService.messageResult = 'yes';
-    window.location.reload();
+  close() {
+    this.dialogRef.close('restart');
   }  
+
 }
