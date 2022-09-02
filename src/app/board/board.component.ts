@@ -44,7 +44,7 @@ let coeff: [number, number][] = [
 })
 export class BoardComponent implements OnInit {
 
-  fieldSize: number = 5;
+  fieldSize: number = 10;
   items: Cell[][];
   stepHistory: Cell[] = [];
   stepCount: number = 1;
@@ -59,7 +59,6 @@ export class BoardComponent implements OnInit {
         this.items[i][j] = initCell({i, j});
       }
     }
-    //console.log(this.items);
     
     //this.items = Array(this.fieldSize).fill(Array(this.fieldSize).fill({initCell}));
   }
@@ -168,7 +167,6 @@ export class BoardComponent implements OnInit {
       this.items[i] = [];
       for (let j = 0; j < this.fieldSize; j++) {
         this.items[i][j] = initCell({i, j});
-        //console.log(this.items[i][j]);
       }
     } 
     

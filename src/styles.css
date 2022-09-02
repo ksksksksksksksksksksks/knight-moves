@@ -5,9 +5,9 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-color: #464646;
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 mat-dialog-container#modal-component {
     border: 3px solid #d5b6dd;

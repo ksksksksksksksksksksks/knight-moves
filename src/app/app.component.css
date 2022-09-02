@@ -1,17 +1,19 @@
 .container-card {
-    position: absolute;
-    margin: 0 25% 0 25%;
-    width: 50%;
+    margin: auto;
+    width: 70%;
+    max-width: 500px;
+    max-height: 500px;
     height: 80%;
     left: 0;
     top: 10%;
     background: linear-gradient(111.49deg, rgba(255, 255, 255, 0.4) -8.95%, rgba(255, 255, 255, 0.01) 114%);
     backdrop-filter: blur(100px);
     border-radius: 25px;
+    min-height: 600px;
 }
 
 header {
-    position:relative
+    position:relative;
 }
 
 p {
@@ -62,7 +64,7 @@ p {
     border-radius: 10px;
     font-size: larger;
     color: aliceblue;
-    margin: 10px;
+    margin: 20px;
     font-weight: bold;
 }
 
@@ -71,15 +73,18 @@ p {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(101px);
     border-radius: 20px;
-    position: absolute;
-    width: 56%;
+    width: 100%;
     height: 80%;
-    right: 23%;
-    top: 15%;
+    max-height: 480px;
+    min-height: 480px;
+    max-width: 440px;
+    top: 10%;
+    margin: auto;
 }
 
 .container-board {
     position: absolute;
     margin-top: 2%;
+    width: 100%;
 }
 
