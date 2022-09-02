@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -8,14 +8,14 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
-  size = new FormControl('');
+  size = new FormControl('10', Validators.required);
   
   constructor(public modal: MatDialogRef<EditorComponent>) { }
 
   ngOnInit(): void {
   }
 
-  public close() {
+  close() {
     this.modal.close(this.size.value);
   }
 

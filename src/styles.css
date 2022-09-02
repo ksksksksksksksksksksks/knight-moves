@@ -9,10 +9,10 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-mat-dialog-container#modal-component {
-    border: 3px solid #d5b6dd;
+mat-dialog-container#select-field-size {
+    border: 3px solid #4F2B87;
     border-radius: 11px;
-    background-color: #9c3285;
+    background-color: #7B40AC;
     color: aliceblue;
     position: absolute;
     margin: 0 25% 0 25%;

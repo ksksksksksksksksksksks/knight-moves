@@ -14,16 +14,17 @@ export class AppComponent {
   constructor(public matDialog: MatDialog) { 
   }
 
-  fieldSize: number = 0;
+  //fieldSize: number = 0;
 
-  openModal3() {
+  selectFieldSize() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
-    dialogConfig.id = "modal-component";
+    dialogConfig.id = "select-field-size";
     dialogConfig.height = "window.screen.height";
     dialogConfig.width = "window.screen.width";
-    const modalDialog = this.matDialog.open(EditorComponent, dialogConfig).afterClosed().subscribe(size => {
-      //this.gameService.messageFieldSize = size;
+    const modalDialog = this.matDialog.open(EditorComponent, dialogConfig);
+    modalDialog.afterClosed().subscribe(fieldSize => {
+      dialogConfig.data = fieldSize;
     });
   }
 

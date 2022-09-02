@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { GameResultComponent } from 'src/app/game-result/game-result.component';
 
