@@ -8,13 +8,13 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class GameResultComponent {
 
-  description: string = '';
+  gameResult: string = '';
 
   constructor(
     public dialogRef: MatDialogRef<GameResultComponent>, 
     @Inject(MAT_DIALOG_DATA) public data: any) { 
     
-      this.description = this.data;
+      this.gameResult = this.data;
   }
 
   close() {

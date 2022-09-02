@@ -5,17 +5,29 @@
     grid-template-rows: repeat(1fr, 3);
 }
 
-#modal-title {
+.modal-title {
     font-size: 22px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFBFF5;
+    background-clip: text;
+    text-shadow: 0px 2.07958px 4.15917px rgba(0, 0, 0, 0.14), 0px 2.07958px 2.07958px rgba(0, 0, 0, 0.12), 0px 2.07958px 4.15917px rgba(0, 0, 0, 0.2);
 }
 
-#modal-footer {
+.modal-footer {
     justify-self: right;
     align-self: center;
 }
 
-#buttonRestart {
+.buttonRestart {
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #265DC7;
+    background-blend-mode: overlay, normal;
+    box-shadow: 0px 4.15917px 8.31834px rgba(0, 0, 0, 0.14), 0px 8.31834px 10.3979px rgba(0, 0, 0, 0.12), 0px 2.07958px 20.7958px rgba(0, 0, 0, 0.2);
+    border: none;
+    width: 190px;
+    height: 45px;
+    border-radius: 10px;
+    font-size: larger;
     color: aliceblue;
-    margin: 10px;
-    background-color:#fd0000;
 }

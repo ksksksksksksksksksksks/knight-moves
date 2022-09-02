@@ -44,11 +44,9 @@ let coeff: [number, number][] = [
 })
 export class BoardComponent implements OnInit {
 
-  //fieldSize: number = 10;
   fieldSize: number = 5;
   items: Cell[][];
   stepHistory: Cell[] = [];
-  restartMessage: string = '';
   stepCount: number = 1;
   clickCount: number = 0;
   resultMessage: string = '';
@@ -85,8 +83,9 @@ export class BoardComponent implements OnInit {
 
     for (let i = 0; i < coeff.length; i++) {
       for (let j = 0; j < 1; j++) {
-        if ((x + coeff[i][j] < this.items.length && x + coeff[i][j] >= 0) && (y + coeff[i][j + 1] < this.items.length && y + coeff[i][j + 1] >= 0)
-        && !this.items[x + coeff[i][j]][y + coeff[i][j + 1]].isClicked) {
+        if ((x + coeff[i][j] < this.items.length && x + coeff[i][j] >= 0) && 
+        (y + coeff[i][j + 1] < this.items.length && y + coeff[i][j + 1] >= 0) &&
+        !this.items[x + coeff[i][j]][y + coeff[i][j + 1]].isClicked) {
           this.items[x + coeff[i][j]][y + coeff[i][j + 1]].isAvailable = true;
         }
       }
@@ -97,14 +96,13 @@ export class BoardComponent implements OnInit {
   makeCurrent(cell: Cell) {
     const x = cell.i;
     const y = cell.j;
+    let availableCount = 0;
+    let clickedCount = 0;
 
     if (this.clickCount == 1 || this.items[x][y].isAvailable){
       this.stepHistory.push(cell);
       this.renderStep(x, y);
     }
-
-    let availableCount = 0;
-    let clickedCount = 0;
     
     for (let i = 0; i < this.fieldSize; i++) {
       for (let j = 0; j < this.fieldSize; j++) {
@@ -131,7 +129,7 @@ export class BoardComponent implements OnInit {
   showResult() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
-    dialogConfig.id = "modal-component-2";
+    dialogConfig.id = "show-result";
     dialogConfig.height = "window.screen.height";
     dialogConfig.width = "window.screen.width";
     dialogConfig.data = this.resultMessage;

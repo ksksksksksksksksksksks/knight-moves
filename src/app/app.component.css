@@ -36,7 +36,7 @@ p {
     background-clip: text;
 }
 
-.Button {
+.buttonStepBack {
     text-transform: uppercase;
     background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #265DC7;
     background-blend-mode: overlay, normal;
@@ -48,9 +48,10 @@ p {
     font-size: larger;
     color: aliceblue;
     margin: 10px;
+    font-weight: bold;
 }
 
-.Button2 {
+.buttonRestart {
     text-transform: uppercase;
     background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #F96E03;
     background-blend-mode: overlay, normal;
@@ -62,6 +63,7 @@ p {
     font-size: larger;
     color: aliceblue;
     margin: 10px;
+    font-weight: bold;
 }
 
 .container-game {

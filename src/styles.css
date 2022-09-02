@@ -22,10 +22,10 @@ mat-dialog-container#modal-component {
     top: 10%;
 }
 
-mat-dialog-container#modal-component-2 {
-    border: 3px solid #d5b6dd;
+mat-dialog-container#show-result {
+    border: 3px solid #4F2B87;
     border-radius: 11px;
-    background-color: #9c3285;
+    background-color: #7B40AC;
     color: aliceblue;
     position: absolute;
     width: 25%;
