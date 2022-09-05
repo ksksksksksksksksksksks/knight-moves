@@ -2,6 +2,7 @@
     margin: auto;
     width: 70%;
     max-width: 590px;
+    min-width: 590px;
     max-height: 660px;
     height: 80%;
     left: 0;
