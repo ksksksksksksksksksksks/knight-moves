@@ -1,16 +1,17 @@
 .container-card {
     margin: auto;
     width: 70%;
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 590px;
+    max-height: 660px;
     height: 80%;
     left: 0;
     top: 10%;
     background: linear-gradient(111.49deg, rgba(255, 255, 255, 0.4) -8.95%, rgba(255, 255, 255, 0.01) 114%);
     backdrop-filter: blur(100px);
     border-radius: 25px;
-    min-height: 600px;
-    margin-top: 5%;
+    min-height: 660px;
+    margin-top: 3%;
+    border: 2px solid aliceblue;
 }
 
 header {
@@ -40,47 +41,67 @@ p {
 }
 
 .buttonStepBack {
+    position: absolute;
+    right: 25%;
     text-transform: uppercase;
     background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #265DC7;
     background-blend-mode: overlay, normal;
     box-shadow: 0px 4.15917px 8.31834px rgba(0, 0, 0, 0.14), 0px 8.31834px 10.3979px rgba(0, 0, 0, 0.12), 0px 2.07958px 20.7958px rgba(0, 0, 0, 0.2);
     border: none;
-    width: 190px;
-    height: 45px;
+    width: 120px;
+    height: 30px;
     border-radius: 10px;
-    font-size: larger;
     color: aliceblue;
-    margin: 10px;
+    margin: 20px;
     font-weight: bold;
 }
 
 .buttonRestart {
+    position: absolute;
+    right: 2%;
     text-transform: uppercase;
     background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #F96E03;
     background-blend-mode: overlay, normal;
     box-shadow: 0px 4.15917px 8.31834px rgba(0, 0, 0, 0.14), 0px 8.31834px 10.3979px rgba(0, 0, 0, 0.12), 0px 2.07958px 20.7958px rgba(0, 0, 0, 0.2);
     border: none;
-    width: 190px;
-    height: 45px;
+    width: 120px;
+    height: 30px;
     border-radius: 10px;
-    font-size: larger;
+    color: aliceblue;
+    margin: 20px;
+    font-weight: bold;
+}
+
+.buttonSetFieldSize {
+    position: absolute;
+    left: 2%;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #265DC7;
+    background-blend-mode: overlay, normal;
+    box-shadow: 0px 4.15917px 8.31834px rgba(0, 0, 0, 0.14), 0px 8.31834px 10.3979px rgba(0, 0, 0, 0.12), 0px 2.07958px 20.7958px rgba(0, 0, 0, 0.2);
+    border: none;
+    width: 120px;
+    height: 30px;
+    border-radius: 10px;
     color: aliceblue;
     margin: 20px;
     font-weight: bold;
 }
 
 .container-game {
+    position: absolute;
     background: linear-gradient(180deg, #AAC2FF 0%, #C81BF1 100%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(101px);
     border-radius: 20px;
     width: 100%;
     height: 80%;
-    max-height: 480px;
-    min-height: 480px;
-    max-width: 440px;
+    max-height: 570px;
+    min-height: 570px;
+    max-width: 530px;
     top: 10%;
     margin: auto;
+    left: 5%;
 }
 
 .container-board {

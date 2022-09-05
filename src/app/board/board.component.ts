@@ -60,7 +60,7 @@ export class BoardComponent implements OnInit {
       }
     }
     
-    //this.items = Array(this.fieldSize).fill(Array(this.fieldSize).fill({initCell}));
+    //this.items = Array(this.fieldSize).fill(Array(this.fieldSize).fill(initCell));
   }
 
   clicked(event: Event) {
